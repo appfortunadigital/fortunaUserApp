@@ -1,19 +1,14 @@
 {
-  // Ini adalah perintah yang akan dijalankan Vercel untuk membuat aplikasi web
-  "buildCommand": "flutter build web --release", 
+  "buildCommand": "flutter build web --release",
   "builds": [
     {
-      // Konfigurasi ini memberitahu Vercel untuk menggunakan plugin Vercel yang mendukung Flutter
       "src": "**",
       "use": "@napi-rs/vercel-action@v1",
       "config": {
-        // DI SINI, ganti "3.19.0" dengan versi Flutter yang Anda gunakan
-        "flutter": "3.19.0" 
+        "flutter": "3.19.0"
       }
     }
   ],
-  // Ini memastikan semua permintaan URL dialihkan ke index.html
-  // agar aplikasi web Flutter bisa berjalan dengan benar
   "rewrites": [
     {
       "source": "/(.*)",
