@@ -1,0 +1,26 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "builds": [
+    {
+      "src": "pubspec.yaml",
+      "use": "@napi-rs/vercel-flutter",
+      "config": {
+        "outputDirectory": "build/web"
+      }
+    }
+  ]
+}
+{
+  "builds": [
+    {
+      "src": "**/pubspec.yaml",
+      "use": "@nuffy/vercel-flutter-web"
+    }
+  ],
+  "installCommand": "flutter pub get"
+}

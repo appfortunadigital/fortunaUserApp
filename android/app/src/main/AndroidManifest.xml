@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="Aplikasi Pelanggan"
+        android:label="fortunaUserApp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -12,42 +11,28 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
-            <!-- Specifies an Android theme to apply to this Activity as soon as
-                 the Android process has started. This theme is visible to the user
-                 while the Flutter UI initializes. -->
+            <!-- Menentukan flutter tool untuk entry point dari aplikasi -->
             <meta-data
-                android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme"
-                />
+              android:name="flutterEmbedding"
+              android:value="2" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-            <!-- Intent filter untuk Deep Link Supabase (Default Login) -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data
-                    android:scheme="com.fortunaUserApp"
-                    android:host="login-callback"/>
-            </intent-filter>
-
-            <!-- !!! BARU: Intent filter untuk alur reset password menggunakan Vercel !!! -->
+            
+            <!-- !!! PENTING: Konfigurasi Deep Link untuk Supabase !!! -->
+            <!-- Baris di bawah ini memberitahu Android untuk membuka aplikasi saat ada URL dengan skema ini -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Skema dan Host ini harus sama dengan yang Anda atur di Supabase dan kode Flutter -->
-                <!-- Ganti 'your-vercel-domain.vercel.app' dengan domain Vercel Anda -->
-                <data android:scheme="fortuna" android:host="your-vercel-domain.vercel.app" />
+                <data android:scheme="com.fortunaUserApp" android:host="login-callback" />
             </intent-filter>
+            
         </activity>
-        <!-- Don't delete the meta-data below.
-             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <!-- Tambahkan metadata untuk memastikan integrasi yang benar dengan Flutter -->
         <meta-data
-            android:name="flutterEmbedding"
-            android:value="2" />
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3419835251"/>
     </application>
 </manifest>

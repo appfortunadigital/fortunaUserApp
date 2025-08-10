@@ -10,9 +10,6 @@ class CustomerDashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Baris kode diagnostik yang ditambahkan:
-    print('CustomerDashboardPage berhasil dibangun dan ditampilkan!');
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard Pelanggan'),
